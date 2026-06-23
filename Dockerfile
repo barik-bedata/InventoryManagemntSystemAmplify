@@ -20,4 +20,4 @@ RUN chmod +x start.sh
 EXPOSE 3000
 
 # Use the start script to run migrations before starting
-CMD ["./start.sh"]
+CMD ["sh", "./start.sh"]

@@ -3,13 +3,18 @@ import { DI } from "./DependencyInjection";
 import { CategoryRoutes } from "./Routes/CategoryRoutes";
 import { ProductRoutes } from "./Routes/ProductRoutes";
 
+import path from "path";
+
 const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.json());
 
+// Serve the frontend static files
+app.use(express.static(path.join(__dirname, "../public")));
+
 app.get("/", (req, res) => {
-  res.send("Welcome to the Clean Architecture (DDD) Inventory API");
+  res.sendFile(path.join(__dirname, "../public/index.html"));
 });
 
 app.use("/categories", CategoryRoutes(DI.categoryController));

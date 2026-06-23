@@ -19,8 +19,10 @@ export class CategoryRepository implements ICategoryRepository {
   }
 
   async findAll(): Promise<Category[]> {
-    const categories = await this.db.prisma.category.findMany();
-    return categories.map((c) => new Category(c.id, c.title));
+    const categories = await this.db.prisma.category.findMany({
+      include: { products: true }
+    });
+    return categories.map((c) => new Category(c.id, c.title, c.products));
   }
 
   async update(id: number, category: Partial<Category>): Promise<Category> {
