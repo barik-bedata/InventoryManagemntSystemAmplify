@@ -64,7 +64,7 @@ jobs:
             mv docker-compose.prod.yml docker-compose.yml
             
             # Pull the latest image
-            docker compose pull app
+            docker-compose pull app
             
             # Restart the containers with the new image
-            docker compose up -d
+            docker-compose up -d
