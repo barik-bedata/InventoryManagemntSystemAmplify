@@ -20,6 +20,10 @@ app.get("/", (req, res) => {
 app.use("/categories", CategoryRoutes(DI.categoryController));
 app.use("/products", ProductRoutes(DI.productController));
 
-app.listen(port, () => {
-  console.log(`Server listening at http://localhost:${port}`);
-});
+if (process.env.NODE_ENV !== "production") {
+  app.listen(port, () => {
+    console.log(`Server listening at http://localhost:${port}`);
+  });
+}
+
+export { app };
