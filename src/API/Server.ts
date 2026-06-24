@@ -14,7 +14,8 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "../public")));
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../public/index.html"));
+  // res.sendFile(path.join(__dirname, "../public/index.html"));
+  console.log(`Server listening at on aws amplify`);
 });
 
 app.use("/categories", CategoryRoutes(DI.categoryController));
