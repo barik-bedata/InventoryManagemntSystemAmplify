@@ -5,6 +5,7 @@
   "main": "dist/API/Server.js",
   "scripts": {
     "build": "tsc && cp -r src/public dist/",
+    "postbuild": "node scripts/create-fallback.js",
     "start": "node dist/API/Server.js",
     "dev": "ts-node-dev --respawn --transpile-only src/API/Server.ts",
     "prisma:generate": "prisma generate",
