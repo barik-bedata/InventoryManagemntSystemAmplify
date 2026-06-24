@@ -24,7 +24,8 @@ app.use("/products", ProductRoutes(DI.productController));
 if (process.env.NODE_ENV !== "production") {
   app.listen(port, () => {
     console.log(`Server listening at http://localhost:${port}`);
-  });
+  }); 
 }
+
 
 export { app };
